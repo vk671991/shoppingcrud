@@ -25,11 +25,11 @@
 
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-            <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center">
+            <a href="{{ route('product.list') }}" class="navbar-brand d-flex align-items-center">
                 <strong>Online Shop</strong>
             </a>
             <ul class="list-unstyled">
-                <li><a href="{{ route('backend.product.list') }}" class="text-white">Shop Backend</a></li>
+                <li><a href="{{ route('product.list') }}" class="text-white">Shop Backend</a></li>
             </ul>
         </div>
     </div>

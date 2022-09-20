@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [\App\Http\Controllers\FrontEnd\ProductController::class, 'index'])->name('home');
-Route::group(['prefix' => 'shop-backend','as'=>'backend.'], function(){
-    Route::get('/', [\App\Http\Controllers\BackEnd\ProductController::class, 'index'])->name('product.list');
-    Route::get('/create', [\App\Http\Controllers\BackEnd\ProductController::class, 'create'])->name('product.create');
-    Route::get('/{slug}/edit', [\App\Http\Controllers\BackEnd\ProductController::class, 'edit'])->name('product.edit');
-});
+
+
+Route::get('/', [\App\Http\Controllers\ProductController::class, 'index'])->name('product.list');
+Route::get('/create', [\App\Http\Controllers\ProductController::class, 'create'])->name('product.create');
+Route::get('/{slug}/edit', [\App\Http\Controllers\ProductController::class, 'edit'])->name('product.edit');
+
 

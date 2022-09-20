@@ -13,7 +13,7 @@
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Online Shop</h1>
-            <p><a href="{{ route('backend.product.create') }}" class="btn btn-primary my-2">Add Product</a></p>
+            <p><a href="{{ route('product.create') }}" class="btn btn-primary my-2">Add Product</a></p>
         </div>
     </section>
 
@@ -52,7 +52,7 @@
 
                             html+= '<div class="col-md-4">';
                             html+= '<div class="card mb-4 box-shadow">';
-                            html+= '<img class="card-img-top" src="#" alt="'+val.name+'">';
+                            html+= '<img class="card-img-top" src="'+val.image+'" alt="'+val.name+'">';
                             html+= '<div class="card-body">';
                             html+= '<h4>'+val.name+'</h4>';
                             html+= '<p class="card-text">Category '+val.category+'</p>';
@@ -60,7 +60,7 @@
                             html+= '<div class="d-flex justify-content-between align-items-center">';
                             html+= '<div class="btn-group">';
                             html+= '<button type="button" class="btn btn-sm btn-outline-secondary deleteProduct" data-slug="'+val.slug+'">Delete</button>';
-                            html+= '<a href="{{ url('/shop-backend') }}/'+val.slug+'/edit" class="btn btn-sm btn-outline-secondary">Edit</a>';
+                            html+= '<a href="{{ url('/') }}/'+val.slug+'/edit" class="btn btn-sm btn-outline-secondary">Edit</a>';
                             html+= '</div>';
                             html+= '</div>';
                             html+= '</div>';
@@ -109,7 +109,7 @@
 
             function deleteProduct(slug){
                 $.ajax({
-                    url: "{{ url('http://localhost:8000/api/shop-backend/products') }}/"+slug+"/delete",
+                    url: "{{ url('http://localhost:8000/api/shop-shop/products') }}/"+slug+"/delete",
                     type: "POST",
                     success: function (response) {
                         swal(response.message)

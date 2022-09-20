@@ -17,7 +17,7 @@
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Online Shop</h1>
-            <p><a href="{{ route('backend.product.list') }}" class="btn btn-primary my-2">Back to Product List</a></p>
+            <p><a href="{{ route('product.list') }}" class="btn btn-primary my-2">Back to Product List</a></p>
         </div>
     </section>
 
@@ -93,9 +93,9 @@
 
             var url = $(location).attr('href');
             var segments = url.split( '/' );
-            var slug = segments[4];
+            var slug = segments[3];
             $.ajax({
-                url: "{{ url('http://localhost:8000/api/shop-backend/products') }}/"+slug,
+                url: "{{ url('http://localhost:8000/api/shop-shop/products') }}/"+slug,
                 type: "get",
                 success: function (response) {
                     $('#title').val(response.data.name);
@@ -108,7 +108,7 @@
                 error: function (jqXHR, exception) {
                     swal('Product not found')
                         .then((value) => {
-                            window.location.href="{{ route('backend.product.list') }}"
+                            window.location.href="{{ route('product.list') }}"
                         });
                 }
             });
@@ -143,7 +143,7 @@
                     form_data.append('category', $('#category').find(":selected").val());
 
                     $.ajax({
-                        url: "{{ url('http://localhost:8000/api/shop-backend/products') }}/"+slug+"/update",
+                        url: "{{ url('http://localhost:8000/api/shop-shop/products') }}/"+slug+"/update",
                         type: "post",
                         data:form_data,
                         cache:false,
@@ -152,7 +152,7 @@
                         success: function (response) {
                             swal(response.message)
                                 .then((value) => {
-                                    window.location.href="{{ route('backend.product.list') }}"
+                                    window.location.href="{{ route('product.list') }}"
                                 });
                         },
                         error: function(jqXHR, textStatus, errorThrown) {

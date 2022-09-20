@@ -17,7 +17,7 @@
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Online Shop</h1>
-            <p><a href="{{ route('backend.product.list') }}" class="btn btn-primary my-2">Back to Product List</a></p>
+            <p><a href="{{ route('product.list') }}" class="btn btn-primary my-2">Back to Product List</a></p>
         </div>
     </section>
 
@@ -129,7 +129,7 @@
                         success: function (response) {
                             swal(response.message)
                                 .then((value) => {
-                                    window.location.href="{{ route('backend.product.list') }}"
+                                    window.location.href="{{ route('product.list') }}"
                                 });
                         },
                         error: function(jqXHR, textStatus, errorThrown) {

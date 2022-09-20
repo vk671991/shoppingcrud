@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['prefix' => 'shop-backend','as'=>'api.'], function(){
+Route::group(['prefix' => 'shop-shop','as'=>'api.'], function(){
     Route::group(['prefix' => 'products'], function(){
         Route::get('/', [\App\Http\Controllers\API\ProductController::class, 'index'])->name('product.list');
         Route::get('/{slug}', [\App\Http\Controllers\API\ProductController::class, 'show'])->name('product.get');
